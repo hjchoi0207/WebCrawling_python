@@ -11,4 +11,13 @@ from bs4 import BeautifulSoup
 ```python
 url = baseUrl + urllib.parse.quote_plus(plusUrl)  # 한글이 오면 전환시켜줌
 ```
-파서를 활용해 한글입력이 들어왔을 때에도 오류없이 정상적인 url로 변환시켜준다
+파서를 활용해 한글입력이 들어왔을 때에도 오류없이 정상적인 url로 변환시켜준다   
+
+```python
+title = soup.find_all(class_='sh_blog_title')
+for i in title:
+    print(i.attrs['title'])
+    print(i.attrs['href'])
+    print()
+```
+sh_blog_title을 가진 class를 모두 찾아 순서대로 태그 내부에 title태그와 href태그를 가져온다. 이를 위해선 브라우저 개발자 도구를 활용해 태그를 보는 방법을 알고있어야한다.
